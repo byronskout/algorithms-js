@@ -29,5 +29,27 @@ function encrypt(message, key) {
   return result;
 }
 
+function decrypt (message, key) {
+  let result ="";
+  for(let i = 0, j = 0; i < message.length; i++){
+    let c = message.charAt(i);
+    if (isLetter(c)){
+      if(isUpperCase(c)) {
+        result += String.fromCharCode(90-(25-(c.charCodeAt(0)-key.toUpperCase().charCodeAt(j)))%26);
+      } else {
+        result += String.fromCharCode(122-(25-(c.charCodeAt(0)-key.toLowerCase().charCodeAt(j)))%26);
+      }
+    } else {
+      result+=c;
+    }
+    j = ++j % key.length;
+  }
+  return result;
+}
+
+
 let messageEncrypt = encrypt('Hello World!', 'code');
 console.log(messageEncrypt);
+
+let messageDecrypt = decrypt("Jsopq Zstzg", 'code');
+console.log(messageDecrypt);
