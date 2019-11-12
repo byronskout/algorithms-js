@@ -1,6 +1,6 @@
 function isLetter(str) {
   return str.length === 1 && str.match(/[a-zA-Z]/i);
-}
+};
 
 function isUpperCase(character) {
   if (character == character.toUpperCase()) {
@@ -9,7 +9,7 @@ function isUpperCase(character) {
   if (character == character.toLowerCase()) {
     return false;
   }
-}
+};
 
 function encrypt(message, key) {
   let result = "";
@@ -27,7 +27,7 @@ function encrypt(message, key) {
     j = ++j % key.length;
   }
   return result;
-}
+};
 
 function decrypt (message, key) {
   let result ="";
@@ -45,8 +45,7 @@ function decrypt (message, key) {
     j = ++j % key.length;
   }
   return result;
-}
-
+};
 
 let messageEncrypt = encrypt('Hello World!', 'code');
 console.log(messageEncrypt);
