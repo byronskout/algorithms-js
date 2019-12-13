@@ -9,7 +9,7 @@ function mi(p, q) {
 
 function hamming_distance(p, q) {
     if (p.length != q.length) throw "Sequences need to be of same length!";
-    return sum(zip(p, q).map(function(v) {
+    return sum(mi(p, q).map(function(v) {
         if (v[0] != v[1]) return 1;
         return 0;
     }))
